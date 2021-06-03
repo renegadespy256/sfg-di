@@ -6,16 +6,16 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 
 @Controller
-public class MyController {
+public class LangController {
 
     private final Greeting greeting;
 
     @Autowired
-    public MyController( Greeting greeting) {
+    public LangController(@Qualifier("LangGreeting") Greeting greeting) {
         this.greeting = greeting;
     }
-
+    
     public String sayHello(){
-        return greeting.sayGreeting();
+        return this.greeting.sayGreeting();
     }
 }
